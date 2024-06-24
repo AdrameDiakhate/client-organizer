@@ -1,0 +1,50 @@
+<div class="signin-container">
+    <div class="signin-header">
+        <img src="https://i.pcmag.com/imagery/reviews/04C2m2ye5UfXyb5x5WWIsZ4-19.fit_scale.size_1028x578.v1625759628.png" alt="logo" class="logo">
+    </div>
+    <div>
+        <p class="signin-description"> Inscrivez-vous pour continuer </p>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signin-form">
+            <input type="text" class="input" placeholder="Entrer votre prenom" formControlName="firstName">
+            <input type="email" class="input" placeholder="Entrer votre nom" formControlName="lastName">
+            <input type="email" class="input" placeholder="Email" formControlName="email">
+            <input type="password" class="input" placeholder="Mot de passe" formControlName="password">
+            @if (loading){
+                <div class="spinner"></div>
+            }
+            <button class="btn" type="submit" [disabled]="!signupForm.valid">S'inscrire</button>
+        </form>
+    </div>
+    <div>
+        <p class="signin-alternative"> Ou continuer avec: </p>
+    </div>
+    <div class="oauth">
+        <div class="single-social-network">
+            <div class="social-network-button">
+                <img src="https://as2.ftcdn.net/v2/jpg/03/08/54/37/1000_F_308543787_DmPo1IELtKY9hG8E8GlW8KHEsRC7JiDN.jpg" alt="google" class="social-network-logo">
+                <span class="social-network-name">Google</span>
+            </div>
+        </div>
+        <div class="single-social-network">
+            <div class="social-network-button">
+                <img src="https://as2.ftcdn.net/v2/jpg/03/08/54/37/1000_F_308543787_DmPo1IELtKY9hG8E8GlW8KHEsRC7JiDN.jpg" alt="google" class="social-network-logo">
+                <span class="social-network-name">Google</span>
+            </div>
+        </div>
+        <div class="single-social-network">
+            <div class="social-network-button">
+                <img src="https://as2.ftcdn.net/v2/jpg/03/08/54/37/1000_F_308543787_DmPo1IELtKY9hG8E8GlW8KHEsRC7JiDN.jpg" alt="google" class="social-network-logo">
+                <span class="social-network-name">Google</span>
+            </div>
+        </div>
+        <div class="single-social-network">
+            <div class="social-network-button">
+                <img src="https://as2.ftcdn.net/v2/jpg/03/08/54/37/1000_F_308543787_DmPo1IELtKY9hG8E8GlW8KHEsRC7JiDN.jpg" alt="google" class="social-network-logo">
+                <span class="social-network-name">Google</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <p class="signin-alternative"> Vous n'avez pas de compte ? <a href="#" class="signup-link"> Inscrivez-vous </a> </p>
+    </div>
+</div>
