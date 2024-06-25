@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
-export class SignupComponent implements OnInit  {  
+export class SignupComponent  {  
   private signupService = inject(SignupService);
   signupForm: FormGroup;
   loading: boolean = false;
@@ -20,11 +20,6 @@ export class SignupComponent implements OnInit  {
   private router = inject(Router);
   
   constructor() {
-    this.signupForm = new FormGroup({});
-  }
-  
-
-  ngOnInit() {
     this.signupForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -32,10 +27,11 @@ export class SignupComponent implements OnInit  {
       password: ['', Validators.required]
     });
   }
+  
 
   onSubmit() {
-    this.loading=true;
     if (this.signupForm.valid) {
+      this.loading=true;
       this.signupService.signup(this.signupForm.value).subscribe(
         response => {
           this.loading=false;

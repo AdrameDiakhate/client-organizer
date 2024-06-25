@@ -2,11 +2,16 @@
     <div class="signin-header">
         <img src="https://i.pcmag.com/imagery/reviews/04C2m2ye5UfXyb5x5WWIsZ4-19.fit_scale.size_1028x578.v1625759628.png" alt="logo" class="logo">
     </div>
-    <div class="signin-form">
+    <div>
         <p class="signin-description"> Connectez-vous pour continuer</p>
-        <input type="email" class="input" placeholder="Email">
-        <input type="password" class="input" placeholder="Mot de passe">
-        <button class="btn">Se connecter</button>
+        <form [formGroup]="signinForm" (ngSubmit)="onSubmit()" class="signin-form">
+            <input type="email" class="input" placeholder="Email" formControlName="email">
+            <input type="password" class="input" placeholder="Mot de passe" formControlName="password">
+            @if (loading){
+                <div class="spinner"></div>
+            }
+            <button type="submit" class="btn" [disabled]="!signinForm.valid">Se connecter</button>
+        </form>
     </div>
     <div>
         <p class="signin-alternative"> Ou continuer avec: </p>
